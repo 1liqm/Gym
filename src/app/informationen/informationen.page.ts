@@ -31,23 +31,3 @@ export class InformationenPage {
   }
 
 }
-/* 
-async speichern(){
-const alert = await this.alertController.create({
-buttons: [{
-  text: "Speichern",
-  handler: (newInfo) => {
-   this.info.push(newInfo); 
-  }
-}]
-}
-)
-
-}
-save(){
- let itemsAsText = JSON.stringify(this.info);
- localStorage.setItem("items",itemsAsText);
-}
-} */
-
-NgModel um die Propertie von einer Komponente zb. InformationenPage mit einem Inoutfeld zu verknüpfen,

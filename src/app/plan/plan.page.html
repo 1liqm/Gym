@@ -13,16 +13,20 @@
       <ion-title size="large">Trainingsplan</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-    <ion-list-header>
-      <ion-label></ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>xxx </ion-label>
-      <ion-icon name="trash-outline"></ion-icon> 
-      <ion-icon name="create-outline"></ion-icon>
+  <ion-list *ngIf="plane">
+    <ion-item *ngFor="let item of plane; let i = index">
+      <ion-label>{{ item }}</ion-label>
     </ion-item>
   </ion-list>
-
-  
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openAlert()" id="present-alert">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+    <ion-alert #alert
+  header="Trainingsplan Hinzufügen"
+  [buttons]="alertButtons"
+  [inputs]="alertInputs" 
+  (didDismiss)="onAddItem($event)"
+></ion-alert>
+  </ion-fab>
 </ion-content>
