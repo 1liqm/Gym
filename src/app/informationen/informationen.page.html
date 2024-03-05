@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/home">aaaa</ion-back-button>
+    </ion-buttons>
+    <ion-title>Informationen</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title>
+        Informationen
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-list>
+    <ion-item >
+      <ion-input
+        label="Name"
+        labelPlacement="stacked"
+        [clearInput]="true"
+        placeholder=""
+        [(ngModel)]="info.Name"
+      >
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input 
+      label="Alter"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="info.Alter"
+      
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input 
+      label="Größe"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="info.Groesse"
+      
+      >
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input
+      label="Gewicht"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="info.Gewicht"
+      >
+
+      </ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button size="default" id="save" (click)="save()">
+    Speichern</ion-button>
+</ion-content>

@@ -1,0 +1,43 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #fffcfc;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+#FitFun {
+ position: relative;
+ left: 80px;
+ font-size: 45px;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#SubtitleFitFun {
+font-size: 10px;
+}
+#add {
+  position: relative;
+  top: 450px;
+  left: 280px;
+  font-size: 17px;
+  width: 50px;
+}
