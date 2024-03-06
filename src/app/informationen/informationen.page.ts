@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { AlertController, RefresherCustomEvent } from '@ionic/angular';
 
@@ -8,7 +8,7 @@ import { AlertController, RefresherCustomEvent } from '@ionic/angular';
   styleUrls: ['./informationen.page.scss'],
 })
 export class InformationenPage {
-
+@Output() saved = new EventEmitter();
   constructor(private alertController: AlertController) {
     console.log(localStorage);
   }
@@ -28,6 +28,7 @@ export class InformationenPage {
     let infoAsText = JSON.stringify(this.info);
     console.log(infoAsText);
     localStorage.setItem ("infos",infoAsText);
+    this.saved.emit();
   }
 
 }

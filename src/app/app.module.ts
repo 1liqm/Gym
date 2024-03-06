@@ -10,10 +10,12 @@ import { InformationenPageModule } from './informationen/informationen.module';
 import { HomePageModule } from './home/home.module';
 import { KalenderPageModule } from './kalender/kalender.module';
 import { PlanPageModule } from './plan/plan.module';
+import { EditPlanComponent } from './edit-plan/edit-plan.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicModule.forRoot({})],
+  declarations: [AppComponent,EditPlanComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, IonicModule.forRoot({})],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

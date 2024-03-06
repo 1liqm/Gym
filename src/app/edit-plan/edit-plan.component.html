@@ -1,0 +1,40 @@
+<ion-content>
+<ion-list>
+  <ion-item >
+    <ion-input
+      label="Name"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="TrainingUnit.name"
+    >
+    </ion-input>
+    
+  </ion-item>
+  <ion-item >
+    <ion-input
+      label="Test"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="TrainingUnit.Test"
+    >
+    </ion-input>
+    
+  </ion-item>
+  
+  <ion-item *ngFor="let exercise of TrainingUnit.Exercise">
+    <!-- Excercise inputs here -->
+  </ion-item>
+  
+</ion-list>
+<ion-fab>
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-button size="default" id="save" (click)="confirm()">
+  Speichern</ion-button>
+
+</ion-content>
+

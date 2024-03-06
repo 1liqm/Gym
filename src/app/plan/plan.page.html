@@ -14,15 +14,15 @@
     </ion-toolbar>
   </ion-header>
   <ion-list *ngIf="plane">
-    <ion-item *ngFor="let item of plane; let i = index">
-      <ion-label>{{ item }}</ion-label>
-    </ion-item>
+    <button><ion-item a (click)="openModal(i)" *ngFor="let item of plane; let i = index" class="anim">
+      <ion-label>{{ item.name }}</ion-label>
+    </ion-item> </button>
   </ion-list>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="openAlert()" id="present-alert">
       <ion-icon name="add" ></ion-icon>
     </ion-fab-button>
-    <ion-alert #alert
+        <ion-alert #alert
   header="Trainingsplan Hinzufügen"
   [buttons]="alertButtons"
   [inputs]="alertInputs" 
