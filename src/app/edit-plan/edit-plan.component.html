@@ -1,40 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Plan Bearbeiten</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
 <ion-list>
-  <ion-item >
-    <ion-input
-      label="Name"
-      labelPlacement="stacked"
-      [clearInput]="true"
-      placeholder=""
-      [(ngModel)]="TrainingUnit.name"
-    >
-    </ion-input>
-    
-  </ion-item>
-  <ion-item >
-    <ion-input
-      label="Test"
-      labelPlacement="stacked"
-      [clearInput]="true"
-      placeholder=""
-      [(ngModel)]="TrainingUnit.Test"
-    >
-    </ion-input>
-    
-  </ion-item>
-  
+
   <ion-item *ngFor="let exercise of TrainingUnit.Exercise">
-    <!-- Excercise inputs here -->
-  </ion-item>
+    <ion-input
+      label="Übung"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="exercise.name"
+    >
+    </ion-input>
+    <ion-input
+      label="Anzahl"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="exercise.sets"
+      type=number
+    >
+    </ion-input>
+ </ion-item>
   
 </ion-list>
 <ion-fab id="more">
-  <ion-fab-button>
+  <ion-fab-button (click)="add()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
 </ion-fab>
-<ion-button size="default" id="save" (click)="confirm()">
-  Speichern</ion-button>
 
 </ion-content>
 

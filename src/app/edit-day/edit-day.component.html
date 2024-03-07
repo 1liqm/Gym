@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>Plan auswählen</ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="TrainingUnit !== undefined" (click)="confirm()" [strong]="true">Confirm</ion-button>
+      <ion-button *ngIf="TrainingUnit === undefined" [disabled]="!canDismiss" (click)="next()">Next</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ng-container *ngIf="TrainingUnit === undefined; else edit">
+    <ion-item *ngFor="let Plan of plane;let i = index">
+      <ion-checkbox name="checked-{{i}}" value="{{i}}" (ionChange)="clicked($event.target.name, $event.target.checked)">
+        <div class="ion-text-wrap">{{Plan.name}}</div>
+      </ion-checkbox>
+    </ion-item>
+  </ng-container>
+  <ng-template #edit>
+    <ion-item><ion-title>{{TrainingUnit.name}}</ion-title></ion-item>
+    <ng-container *ngFor="let exercise of TrainingUnit.Exercise">
+      <ion-item >
+        <p class="platz"> {{exercise.name}} </p>
+        <ion-input
+        label="Anzahl"
+        labelPlacement="stacked"
+        [clearInput]="true"
+        placeholder=""
+        [(ngModel)]="exercise.sets"
+        type=number
+        >
+        </ion-input>
+      </ion-item>
+    <ion-item *ngFor="let i of [].constructor(exercise.sets)"> </ion-item>
+  </ng-container>
+  </ng-template>
+</ion-content>
+

@@ -4,6 +4,9 @@
       <ion-back-button default-href="/home">aaaa</ion-back-button>
     </ion-buttons>
     <ion-title>Informationen</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()"a href="/home?saved" [strong]="true">Confirm</ion-button>
+    </ion-buttons>
   </ion-toolbar>
   
 </ion-header>
@@ -42,6 +45,17 @@
       </ion-input>
     </ion-item>
     <ion-item>
+      <ion-select label="Geschlecht"interface="popover" label-placement="stacked" [(ngModel)]="info.Geschlecht">
+      <ion-select-option value="Männlich">Männlich</ion-select-option>
+      <ion-select-option value="Weiblich">Weiblich</ion-select-option>
+      <ion-select-option value="Keine Angabe">Keine Angabe</ion-select-option>
+
+    </ion-select>
+      
+      
+     
+    </ion-item>
+    <ion-item>
       <ion-input 
       label="Größe"
       labelPlacement="stacked"
@@ -65,6 +79,4 @@
       </ion-input>
     </ion-item>
   </ion-list>
-  <ion-button size="default" id="save" (click)="save()" a href="/home?saved">
-    Speichern</ion-button>
 </ion-content>

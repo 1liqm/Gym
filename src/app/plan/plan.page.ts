@@ -29,7 +29,11 @@ export class PlanPage {
     {
       id: 'name-input',
       placeholder: ("Name"),
+      attributes: {
+        required : true
+      }
       //onclick: clear.p
+      
     },
 
   ];
@@ -48,12 +52,17 @@ export class PlanPage {
 
   async onAddItem(event: any)
   {
-      if (event.detail.data == undefined || event.detail.data.values == undefined)
-        return;
+      if (event.detail.data == undefined 
+        || event.detail.data.values == undefined
+        || event.detail.data.values[0] == "")
+        {
+          return;
+        }
       let unit = new TrainingUnit();
       unit.name = event.detail.data.values[0];
       this.plane.push(unit);
       await this.save();
+
   
     }
     async openModal(index: number) {

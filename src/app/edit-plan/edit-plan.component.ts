@@ -2,6 +2,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AlertController, RefresherCustomEvent,ModalController } from '@ionic/angular';
 import { TrainingUnit } from '../shared/models/TrainingUnit.model';
+import { Exercise } from '../shared/models/Exercise.model';
 
 
 @Component({
@@ -26,6 +27,11 @@ export class EditPlanComponent {
 
   confirm() {
     return this.modalCtrl.dismiss({index: this.index, unit: this.TrainingUnit}, 'confirm');
+  }
+
+  async add() {
+    this.TrainingUnit.Exercise.push(new Exercise());
+    this.TrainingUnit.Exercise = [...this.TrainingUnit.Exercise];
   }
 }
 
