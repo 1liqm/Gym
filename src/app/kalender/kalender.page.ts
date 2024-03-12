@@ -9,6 +9,11 @@ import { ModalController } from '@ionic/angular';
 })
 export class KalenderPage {
   constructor(private modalCtrl: ModalController) {}
+
+  Day: {[index: string]:any} = 
+  localStorage['Day'] != undefined
+    ? JSON.parse(localStorage['Day'])
+    : {};
   
   onChange(arg0: string | string[] | null | undefined) {
     console.log(arg0);
@@ -19,12 +24,13 @@ export class KalenderPage {
     this.openModal(arg0);
   }
 
-  async openModal(date: String) {
+  async openModal(date: string) {
     
     const modal = await this.modalCtrl.create({
       component: EditDayComponent,
       componentProps: {
         Date: date,
+        TrainingUnit: this.Day[this.removeTime(date)]
       },
     });
     
@@ -33,9 +39,18 @@ export class KalenderPage {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
-      console.log(data);
-      //this.plane[data.index] = data.unit;
-      //await this.save();
+     this.Day[this.removeTime(data.index)] = data.unit
+     this.save();
     }
+  }
+  async save() {
+    let dayAsText = JSON.stringify(this.Day);
+    localStorage.setItem('Day', dayAsText);
+
+  }
+
+  removeTime(date: string):string
+  {
+    return date.split('T')[0];
   }
 }

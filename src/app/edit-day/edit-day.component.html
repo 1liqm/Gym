@@ -20,20 +20,43 @@
   </ng-container>
   <ng-template #edit>
     <ion-item><ion-title>{{TrainingUnit.name}}</ion-title></ion-item>
-    <ng-container *ngFor="let exercise of TrainingUnit.Exercise">
+    <ng-container *ngFor="let exercise of TrainingUnit.Exercise; let i = index">
       <ion-item >
         <p class="platz"> {{exercise.name}} </p>
         <ion-input
         label="Anzahl"
         labelPlacement="stacked"
         [clearInput]="true"
+        [value]="exercise.sets"
         placeholder=""
-        [(ngModel)]="exercise.sets"
         type=number
+        min="0"
+        (ionChange)="setchange($event.target.value, i) "
         >
         </ion-input>
       </ion-item>
-    <ion-item *ngFor="let i of [].constructor(exercise.sets)"> </ion-item>
+    <ion-item *ngFor="let set of exercise.exerciseSet">
+      <ion-input
+        label="Gewicht"
+        labelPlacement="stacked"
+        [clearInput]="true"
+        placeholder=""
+        [(ngModel)]="set.Gewicht"
+        type=number
+        min="0"
+        >
+      </ion-input>
+      <ion-input
+      label="Wdh"
+      labelPlacement="stacked"
+      [clearInput]="true"
+      placeholder=""
+      [(ngModel)]="set.Wiederholungen"
+      type=number
+      min="0"
+      >
+    </ion-input>
+    </ion-item>
   </ng-container>
   </ng-template>
 </ion-content>
